@@ -1155,7 +1155,7 @@ class _drawerauditoria extends State<drawerauditoria> {
           mostrarNotificacion();
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => PdfViewerPage()));
-          print("File is saved to download folder");
+          print("Se ha descargado el PDF");
         } on TimeoutException catch (e) {
           print(e.message);
           Fluttertoast.showToast(
@@ -1182,7 +1182,7 @@ class _drawerauditoria extends State<drawerauditoria> {
         var resBody2 = jsonDecode(rest.body);
         if (resBody2['success'] == true) {
           idinformes = int.parse(resBody2["iddata"]["idinforme"]);
-          print(idinformes);
+       
           if (especie == 1) {
             Guardarinfocerezas(idinformes);
           } else if (especie == 2) {
@@ -1195,7 +1195,7 @@ class _drawerauditoria extends State<drawerauditoria> {
         }
       }
     } on TimeoutException catch (e) {
-      print(e.message);
+      // print(e.message);
       Fluttertoast.showToast(msg: 'Se supero el tiempo de espera');
     } on Error catch (errorMsg) {
       return ("Error :: $errorMsg");
@@ -1242,7 +1242,7 @@ class _drawerauditoria extends State<drawerauditoria> {
         }
       }
     } on TimeoutException catch (e) {
-      print(e.message);
+      // print(e.message);
       Fluttertoast.showToast(msg: 'Se supero el tiempo de espera');
     } catch (errorMsg) {
       return ("Error :: $errorMsg");
@@ -1259,7 +1259,7 @@ class _drawerauditoria extends State<drawerauditoria> {
             'idinforme': nums.toString(),
             'num': num
           }).timeout(const Duration(seconds: 10));
-      print(restS.body);
+      // print(restS.body);
       if (restS.statusCode == 200) {
         var resBody3 = jsonDecode(restS.body);
         if (resBody3['success'] == true) {
@@ -1277,9 +1277,7 @@ class _drawerauditoria extends State<drawerauditoria> {
                 Get.to(() => sani());
               } else if (num == '6') {
                 Get.to(() => otros());
-              } else if (num == '7') {
-                Get.to(() => cpedicelo());
-              }
+              } 
             }
             observaciones.add(resBody3['info'][x]);
             listim.add(resBody3['grafico'][x]);
@@ -1289,7 +1287,7 @@ class _drawerauditoria extends State<drawerauditoria> {
         }
       }
     } on TimeoutException catch (e) {
-      print(e.message);
+      // print(e.message);
       Fluttertoast.showToast(msg: 'Se supero el tiempo maximo');
     } catch (errorMsg) {
       return ("Error :: $errorMsg");
@@ -1298,21 +1296,26 @@ class _drawerauditoria extends State<drawerauditoria> {
 
   Future Guardarinfokiwi(int nums) async {
     try {
+      var url = EndPoints.generateEndPointsURLkiwis('/informekiwi.php');
+      print(url);
       var restS = await http.post(
+         
           Uri.parse(
-            EndPoints.generateEndPointsURLkiwis('/informekiwi.php'),
+            url,
           ),
           body: {
             'idinforme': nums.toString(),
             'num': num
           }).timeout(const Duration(seconds: 10));
-      print(restS.body);
+      
       if (restS.statusCode == 200) {
+        print('ENTRO restS.statusCode');
         var resBody3 = jsonDecode(restS.body);
         if (resBody3['success'] == true) {
           for (int x = 0; x < resBody3['grafico'].length; x++) {
             if (x == resBody3['grafico'].length - 1) {
               if (num == '1') {
+                print('ENTRO');
                 cr.nombres = ['Recepción, Segregación', 'Grafico 3'];
                 cr.titulo = 'Control recepción';
                 Get.to(() => crecepcion());
@@ -1328,7 +1331,7 @@ class _drawerauditoria extends State<drawerauditoria> {
                 Get.to(() => cpedicelo());
               }
             }
-            print(resBody3['info'][x]);
+            // print(resBody3['info'][x]);
             observaciones.add(resBody3['info'][x]);
             listim.add(resBody3['grafico'][x]);
           }
@@ -1337,7 +1340,7 @@ class _drawerauditoria extends State<drawerauditoria> {
         }
       }
     } on TimeoutException catch (e) {
-      print(e.message);
+      // print(e.message);
       Fluttertoast.showToast(msg: 'Se supero el tiempo maximo');
     } catch (errorMsg) {
       return ("Error :: $errorMsg");
@@ -1398,9 +1401,9 @@ class _PdfViewerPageState extends State<PdfViewerPage> {
       final response = await http.get(Uri.parse(url));
       final bytes = response.bodyBytes;
       final dir = await getApplicationDocumentsDirectory();
-      print(response);
-      print(bytes);
-      print(dir);
+      // print(response);
+      // print(bytes);
+      // print(dir);
       var file = File('${dir.path}/archivo1');
       await file
           .writeAsBytes(bytes, flush: true)
@@ -1409,15 +1412,15 @@ class _PdfViewerPageState extends State<PdfViewerPage> {
         Pfile = file;
       });
 
-      print(Pfile);
+      // print(Pfile);
       setState(() {
         isLoading = false;
       });
     } on TimeoutException catch (e) {
-      print(e.message);
+      // print(e.message);
       Fluttertoast.showToast(msg: 'Error al crear la vista previa del pdf');
     } on Error catch (e) {
-      print(e);
+      // print(e);
     }
   }
 

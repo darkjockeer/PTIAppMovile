@@ -18,7 +18,7 @@ class Constant{
 
   static const String hostConnecttablas4 = "$DOMAIN$PATH/PuntosCriticos";
 
-  static const String pdf="https://controlcalidad.ptichile.com/puntocritico/views/cerezas/imprimir?turno=0&fecha=12-12-2022&sp=1&idm=1&central=9&exp=6";
+  
   static const String WIFI_DISABLED="wifi_disabled";
   static const String CONNECTION_DISABLED="connection_disabled";
   static const String SERVER_ERROR="server_error";
