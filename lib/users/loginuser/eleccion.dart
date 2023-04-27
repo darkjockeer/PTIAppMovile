@@ -5,7 +5,6 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:proyecto/drawers/drawerauditoria.dart';
-import 'package:proyecto/drawers/drawerpomaceas.dart';
 import 'package:proyecto/drawers/draweruvas.dart';
 import 'package:proyecto/graficos/Auditorias/crecepcion.dart';
 import 'package:proyecto/graficos/Ranking/Graficoss.dart' as gr;
@@ -25,8 +24,9 @@ import 'package:proyecto/users/model/noti.dart';
 import 'package:proyecto/users/preferencias/actual.dart';
 import 'package:proyecto/users/preferencias/preferencias.dart';
 import 'package:proyecto/graficos/Tendencia/graficotendencia.dart' as gt;
-import '../../api_connection/Endpoints/EndPoinst.dart';
+import '../../api_connection/Endpoints/EndPoinstCerezas.dart';
 import '../../drawers/drawerarandanos.dart';
+import '../../drawers/drawerpomaceas.dart';
 import 'login.dart';
 import 'nuevo.dart';
 import 'package:http/http.dart' as http;
@@ -47,6 +47,7 @@ List <String> nombres=[];
 List <String> id_nombres=[];
   int currentIndexs=0;
   int paginaactual=0;
+  int selectedSpecies=0;
 List<String> images =[
     "assets/images/aucerezas.png",
     "assets/images/torta.png",
@@ -119,7 +120,7 @@ class _Eleccion extends State<Eleccion>{
     {
       print('a');
       Navigator.of(context).pop();
-      Fluttertoast.showToast(msg: "Error critico");//DECIA ERROR CRITICO ANTES
+      Fluttertoast.showToast(msg: "Error critico");
     }
 }
 
@@ -171,7 +172,7 @@ class _Eleccion extends State<Eleccion>{
     try
     {
       var rest = await http.post(
-      Uri.parse(EndPoints.generateEndPointsURLInfo('/central.php')),
+      Uri.parse(EndPoints.generateEndPointsURLInfoExportadores('/ExportadoresxControlCaja.php')),
       body: {
         'idlogin' : _currentUser.user.IDLOGIN.toString(),
         'idexportador' : _currentUser.user.IDEXPORTADOR.toString(),
@@ -190,6 +191,7 @@ class _Eleccion extends State<Eleccion>{
           {
             lg.exportador.add(resBody2["userData"][x]["NOMEXPORTADOR"]);
             lg.id_exportador.add(resBody2["userData"][x]["IDEXPORTADOR"]);
+            print('entro2');
           }
           if(_currentUser.user.IDEXPORTADOR.toString()==resBody2["userData"][x]["IDEXPORTADOR"] && num=='1')
           {
@@ -198,12 +200,14 @@ class _Eleccion extends State<Eleccion>{
             print(nombreidexportador);
             info6(num2);
             tomarfoto();
+            print('entro1');
           }
           if(_currentUser.user.IDEXPORTADOR.toString()==resBody2["userData"][x]["IDEXPORTADOR"] && num=='2')
           {
             nuevoidexportador=(resBody2["userData"][x]["IDEXPORTADOR"]);
             nombreidexportador=(resBody2["userData"][x]["NOMEXPORTADOR"]);
-            print('entro1');
+            print('entro');
+            print(nuevoidexportador);
             info5(num2);
             tomarfoto();
           }
@@ -211,9 +215,14 @@ class _Eleccion extends State<Eleccion>{
           {
             nuevoidexportador=(resBody2["userData"][x]["IDEXPORTADOR"]);
             nombreidexportador=(resBody2["userData"][x]["NOMEXPORTADOR"]);
-            print('entro2');
+            print(nuevoidexportador);
+            print('entrooo');
             autenticacion();
             break;
+          }else{
+            nuevoidexportador=(resBody2["userData"][x]["IDEXPORTADOR"]);
+            nombreidexportador=(resBody2["userData"][x]["NOMEXPORTADOR"]);
+            autenticacion();
           }
 
         }
@@ -236,7 +245,7 @@ class _Eleccion extends State<Eleccion>{
     try
     {
       var rests = await http.post(
-      Uri.parse(EndPoints.generateEndPointsURLInfo('/centralmas.php')),
+      Uri.parse(EndPoints.generateEndPointsURLInfoCentrales('/CentralesxControlCaja.php')),
       body: {
         'idlogin' : _currentUser.user.IDLOGIN.toString(),
         'idperfil' : _currentUser.user.IDPERFIL.toString(),
@@ -319,7 +328,7 @@ class _Eleccion extends State<Eleccion>{
     try
     {
       var rests = await http.post(
-      Uri.parse(EndPoints.generateEndPointsURLInfo('/centrales.php')),
+      Uri.parse(EndPoints.generateEndPointsURLInfoCentrales('/CentralesxExportador.php')),
       body: {
         'idlogin' : _currentUser.user.IDLOGIN.toString(),
         'idperfil' : _currentUser.user.IDPERFIL.toString(),
@@ -387,7 +396,7 @@ class _Eleccion extends State<Eleccion>{
     try
     {
       var rests = await http.post(
-      Uri.parse(EndPoints.generateEndPointsURLInfo('/centrales.php')),
+      Uri.parse(EndPoints.generateEndPointsURLInfoCentrales('/CentralesxExportador.php')),
       body: {
         'idlogin' : _currentUser.user.IDLOGIN.toString(),
         'idperfil' : _currentUser.user.IDPERFIL.toString(),
@@ -405,16 +414,20 @@ class _Eleccion extends State<Eleccion>{
         {
           if(_currentUser.user.IDPERFIL==5 || _currentUser.user.IDPERFIL==1)
           {
+            print('entro1');
             lg.id_centrales.add(resBody3["userData"][x]["IDCENTRAL"]);
             if(x==resBody3["userData"].length-1)
             {
               info4(num2);
+              print('entro2');
             }
           }
           else
           {
+            print('entro3');
             if(_currentUser.user.IDCENTRAL.toString()==resBody3["userData"][x]["IDCENTRAL"])
             {
+              print('entro4');
               info4(num2);
               lg.id_centrales.add(resBody3["userData"][x]["IDCENTRAL"]);
             }
@@ -450,7 +463,7 @@ class _Eleccion extends State<Eleccion>{
     try
     {
       var rests = await http.post(
-      Uri.parse(EndPoints.generateEndPointsURLInfo('/centralmas.php')),
+      Uri.parse(EndPoints.generateEndPointsURLInfoCentrales('/CentralesxControlCaja.php')),
       body: {
         'idlogin' : _currentUser.user.IDLOGIN.toString(),
         'idperfil' : _currentUser.user.IDPERFIL.toString(),
@@ -513,7 +526,7 @@ class _Eleccion extends State<Eleccion>{
     try
     {
       var rest = await http.post(
-      Uri.parse(EndPoints.generateEndPointsURLInfo('/especieCentral.php'),),
+      Uri.parse(EndPoints.generateEndPointsURLInfoCentrales('/CentralesxEspecies.php'),),
       body: {
         'idexportador':_currentUser.user.IDEXPORTADOR.toString(),
         'idespecie': num
@@ -591,17 +604,18 @@ class _Eleccion extends State<Eleccion>{
   
     try
     {
-      var rest = await http.post(
-      Uri.parse(EndPoints.generateEndPointsURLtabla2('/variedad.php'),),
+      var url8=Uri.parse(EndPoints.generateEndPointsURLtabla2('/variedad.php'));
+      var rest7 = await http.post(
+      url8,
       body: {
         'variedad':'1',
         'nomorderdesc': 'lopez'
       }
       ).timeout(const Duration(seconds: 8));
-      print(rest.body);
-    if(rest.statusCode == 200)
+      print(rest7.body);
+    if(rest7.statusCode == 200)
       {
-      var resBody2 = jsonDecode(rest.body);
+      var resBody2 = jsonDecode(rest7.body);
       if(resBody2['success']== true)
       {
         for (int x=0; x<=resBody2["nomvariedad"].length; x=x+1){
@@ -670,15 +684,16 @@ class _Eleccion extends State<Eleccion>{
     var resultResponse = await Get.dialog(
       AlertDialog(
         backgroundColor: Colors.grey[50],
-        title: const Text(''),
-        content: const Text('¿Estas segur@ de querer cerrar sesión?'),
+        title: const Text('Cerrar sesión'),
+        content: const Text('¿Quieres cerrar sesión?'),
         actions: [
+          TextButton(
+            onPressed: () {Get.back(result: "Cerrar sesión");},
+                child: const Text('Si', style: TextStyle(color: Colors.black),)),
           TextButton(
             onPressed: () {Get.back();},
               child: const Text('No', style: TextStyle(color: Colors.black),)),
-          TextButton(
-            onPressed: () {Get.back(result: "Cerrar sesión");},
-                child: const Text('Si', style: TextStyle(color: Colors.black),))
+          
                 ],
                   ),
                 );
@@ -806,16 +821,17 @@ class _Eleccion extends State<Eleccion>{
           content: const Text('¿Quieres salir de la aplicacion?'),
           actions:[
             ElevatedButton(
+              onPressed: () => SystemNavigator.pop(), 
+              //return true when click on "Yes"
+              child:const Text('Si'),
+            ),
+            ElevatedButton(
               onPressed: () => Navigator.of(context).pop(false),
                //return false when click on "NO"
               child:const Text('No'),
             ),
 
-            ElevatedButton(
-              onPressed: () => SystemNavigator.pop(), 
-              //return true when click on "Yes"
-              child:const Text('Si'),
-            ),
+            
 
           ],
         ),
@@ -845,6 +861,7 @@ class _Eleccion extends State<Eleccion>{
                         "assets/images/segregacion.png"
                         
                       ];
+                      selectedSpecies=0;
                       if(index2% images.length== 0)
                       {
                         fruta='Informe puntos críticos';
@@ -869,6 +886,7 @@ class _Eleccion extends State<Eleccion>{
                     }
                     else if(indexs==4 && especies.contains('6')==true && especies.contains('7')!=true){//SOLO PERAS
                       paginaactual = indexs;
+                      selectedSpecies=4;
                       images =[
                         "assets/images/pera.png"
                       ];
@@ -880,6 +898,7 @@ class _Eleccion extends State<Eleccion>{
                     }
                     else if(indexs==4 && especies.contains('7')==true&& especies.contains('6')!=true){//SOLO MANZANAS
                       paginaactual = indexs;
+                      selectedSpecies=4;
                       images =[
                         "assets/images/aumanzana.png"
 
@@ -892,6 +911,7 @@ class _Eleccion extends State<Eleccion>{
                     }
                     else if(indexs==4 && especies.contains('6')==true && especies.contains('7')==true){//SOLO PERAS Y MANZANAS
                       paginaactual = indexs;
+                      selectedSpecies=4;
                       images =[
                         "assets/images/aumanzana.png",
                         "assets/images/pera.png"
@@ -909,6 +929,7 @@ class _Eleccion extends State<Eleccion>{
                     else if(indexs==2 && especies.contains('2')==true)//SOLO CAROZOS
                     {
                       paginaactual=indexs;
+                      selectedSpecies=2;
                       images=[
                         "assets/images/aucarozos.png"
                       ];
@@ -917,6 +938,7 @@ class _Eleccion extends State<Eleccion>{
                     }
                     else if(indexs==1 && especies.contains('10')==true){//SOLO ARANDANOS
                       paginaactual = indexs;
+                      selectedSpecies=1;
                       images =[
                         "assets/images/auarandanos.png"
                       ];
@@ -925,6 +947,7 @@ class _Eleccion extends State<Eleccion>{
                     }
                     else if(indexs==3 && especies.contains('9')==true){//SOLO KIWIS
                       paginaactual = indexs;
+                      selectedSpecies=3;
                       images =[
                         "assets/images/aukiwis.png"
                       ];
@@ -933,6 +956,7 @@ class _Eleccion extends State<Eleccion>{
                     }
                     else if(indexs==5 && especies.contains('8')==true){//SOLO UVAS
                       paginaactual = indexs;
+                      selectedSpecies=5;
                       images =[
                         "assets/images/auuvas.png"
                       ];
@@ -941,11 +965,13 @@ class _Eleccion extends State<Eleccion>{
                     }
                     else
                     {
+                      selectedSpecies=0;
                       Fluttertoast.showToast(msg: 'No existe servicio asociado a la especie seleccionada');
+                      
                     }
                   });
                 },
-                currentIndex: paginaactual,
+                currentIndex: selectedSpecies,
                 items:const  [
                   BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/cherry.png",),color: Colors.white,), label: 'Cerezas', backgroundColor: Color.fromRGBO(4, 43, 82, 1)),
                   BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/blueberry.png",),color: Colors.white,), label: 'Arandanos', backgroundColor: Color.fromRGBO(4, 43, 82, 1)),
@@ -1032,7 +1058,7 @@ class _Eleccion extends State<Eleccion>{
                                     });
                                   },
                             
-                            itemCount: images.length,
+                            // itemCount: images.length,
                             itemBuilder: (context, index){
                               return Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 20),

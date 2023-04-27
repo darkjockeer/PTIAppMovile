@@ -29,7 +29,7 @@ import 'package:proyecto/users/model/User.dart';
 import 'package:proyecto/users/preferencias/actual.dart';
 import 'package:proyecto/users/preferencias/preferencias.dart';
 import 'package:proyecto/graficos/Tendencia/graficotendencia.dart' as gt;
-import '../../api_connection/Endpoints/EndPoinst.dart';
+import '../api_connection/Endpoints/EndPoinstArandanos.dart';
 import 'package:http/http.dart' as http;
 import 'package:proyecto/users/model/noti.dart';
 import '../graficos/Auditorias/chidro.dart';
@@ -114,20 +114,21 @@ class _drawerarandanos extends State<drawerarandanos>{
         //the return value will be from "Yes" or "No" options
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text('Cerrar App'),
+          title: const Text('Cerrar Aplicación'),
           content: const Text('¿Quieres salir de la aplicacion?'),
           actions:[
+            ElevatedButton(
+              onPressed: () => SystemNavigator.pop(), 
+              //return true when click on "Yes"
+              child:const Text('Si'),
+            ),
             ElevatedButton(
               onPressed: () => Navigator.of(context).pop(false),
                //return false when click on "NO"
               child:const Text('No'),
             ),
 
-            ElevatedButton(
-              onPressed: () => SystemNavigator.pop(), 
-              //return true when click on "Yes"
-              child:const Text('Si'),
-            ),
+            
 
           ],
         ),
@@ -745,7 +746,7 @@ class _drawerarandanos extends State<drawerarandanos>{
   Future comprobacion()async{
     try{
       var rest = await http.post(
-      Uri.parse(EndPoints.generateEndPointsURLtabla4('/cerezas.php'),),
+      Uri.parse(EndPoints.generateEndPointsURLInformes('/informe.php'),),
       body: {
         'fecha': fechas[0],
         'turno': valor5,
@@ -770,8 +771,7 @@ class _drawerarandanos extends State<drawerarandanos>{
       } 
     }
     }
-    on TimeoutException catch(e)
-    {
+    on TimeoutException {
       Fluttertoast.showToast(msg: 'Se supero el tiempo de conexión');
     }
   }
@@ -789,10 +789,13 @@ class _drawerarandanos extends State<drawerarandanos>{
                                           String savename="Informe - $nombre - PTI - ${el.nombreidexportador} - ${valor2} - ${fechas[0]} - ${valor5}.pdf";
                                           String savePath = dir.path + "/$savename";
                                           print(savePath);
+                                          print(savename);
 
                                           try{
+                                            var link='https://controlcalidad.ptichile.com/puntocritico/views/arandanos/imprimir?turno=$valor3&fecha=${fechas[0]}&sp=10&idm=1&central=$valor6&exp=${el.nuevoidexportador}';
+                                            print(link);
                                             await Dio().download(
-                                              'https://controlcalidad.ptichile.com/puntocritico/views/arandanos/imprimir?turno=$valor3&fecha=${fechas[0]}&sp=10&idm=1&central=$valor6&exp=${el.nuevoidexportador}',
+                                              link,
                                               savePath,
                                               onReceiveProgress: (received, total){
                                                 if(total != -1){
@@ -822,7 +825,7 @@ class _drawerarandanos extends State<drawerarandanos>{
     try
     {
       var rest = await http.post(
-      Uri.parse(EndPoints.generateEndPointsURLtabla4('/cerezas.php'),),
+      Uri.parse(EndPoints.generateEndPointsURLInformes('/informe.php'),),
       body: {
         'fecha': fechas[0],
         'turno': valor5,
@@ -953,6 +956,7 @@ class _PdfViewerPageState extends State<PdfViewerPage> {
     });
     try{
     var url = 'https://controlcalidad.ptichile.com/puntocritico/views/arandanos/imprimir?turno=$valor3&fecha=${fechas[0]}&sp=10&idm=1&central=$valor6&exp=${el.nuevoidexportador}';
+    print(url);
     final response = await http.get(Uri.parse(url));
     final bytes = response.bodyBytes;
     final dir = await getApplicationDocumentsDirectory();

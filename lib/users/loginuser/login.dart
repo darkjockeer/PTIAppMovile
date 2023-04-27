@@ -2,19 +2,17 @@
 
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 import 'dart:ui';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:proyecto/api_connection/Endpoints/EndPoinst.dart';
+import 'package:proyecto/api_connection/Endpoints/EndPoinstCerezas.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:proyecto/users/loginuser/nuevo.dart';
-import 'package:proyecto/users/preferencias/actual.dart';
 import 'package:proyecto/users/preferencias/preferencias.dart';
 import '../model/User.dart';
 import 'eleccion.dart';
@@ -165,7 +163,7 @@ class _Login extends State<login> {
     {
       print('a');
       Navigator.of(context).pop();
-      Fluttertoast.showToast(msg: "");//Error critico
+      // Fluttertoast.showToast(msg: "");//Error critico
     }
   }
         
@@ -182,20 +180,21 @@ class _Login extends State<login> {
         //the return value will be from "Yes" or "No" options
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text('Cerrar App'),
+          title: const Text('Cerrar aplicación'),
           content: const Text('¿Quieres salir de la aplicacion?'),
           actions:[
+            ElevatedButton(
+              onPressed: () => SystemNavigator.pop(), 
+              //return true when click on "Yes"
+              child:const Text('Si'),
+            ),
             ElevatedButton(
               onPressed: () => Navigator.of(context).pop(false),
                //return false when click on "NO"
               child:const Text('No'),
             ),
 
-            ElevatedButton(
-              onPressed: () => SystemNavigator.pop(), 
-              //return true when click on "Yes"
-              child:const Text('Si'),
-            ),
+            
 
           ],
         ),

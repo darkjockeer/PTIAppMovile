@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import '../../api_connection/Endpoints/EndPoinst.dart';
+import '../../api_connection/Endpoints/EndPoinstCerezas.dart';
 import '../../drawers/drawerranking.dart';
 import 'package:flutter/material.dart';
 import '../../drawers/drawerranking.dart' as dr;

@@ -1,0 +1,4 @@
+#Thu Apr 20 12:36:17 CLT 2023
+base.0=C\:\\Users\\Sergio\\Documents\\GitHub\\PTIAppMovile\\android\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

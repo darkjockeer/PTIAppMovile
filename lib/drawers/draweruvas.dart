@@ -28,7 +28,7 @@ import 'package:proyecto/users/model/User.dart';
 import 'package:proyecto/users/preferencias/actual.dart';
 import 'package:proyecto/users/preferencias/preferencias.dart';
 import 'package:proyecto/graficos/Tendencia/graficotendencia.dart' as gt;
-import '../../api_connection/Endpoints/EndPoinst.dart';
+import '../../api_connection/Endpoints/EndPoinstUvas.dart';
 import 'package:http/http.dart' as http;
 import 'package:proyecto/graficos/Auditorias/crecepcion.dart' as cr;
 import '../graficos/Auditorias/chidro.dart';
@@ -113,20 +113,21 @@ class _draweuvas extends State<draweuvas>{
         //the return value will be from "Yes" or "No" options
         context: context,
         builder: (context) => AlertDialog(
-          title: const Text('Cerrar App'),
+          title: const Text('Cerrar aplicación'),
           content: const Text('¿Quieres salir de la aplicacion?'),
           actions:[
+             ElevatedButton(
+              onPressed: () => SystemNavigator.pop(), 
+              //return true when click on "Yes"
+              child:const Text('Si'),
+            ),
             ElevatedButton(
               onPressed: () => Navigator.of(context).pop(false),
                //return false when click on "NO"
               child:const Text('No'),
             ),
 
-            ElevatedButton(
-              onPressed: () => SystemNavigator.pop(), 
-              //return true when click on "Yes"
-              child:const Text('Si'),
-            ),
+           
 
           ],
         ),
@@ -606,7 +607,7 @@ class _draweuvas extends State<draweuvas>{
   Future comprobacion()async{
     try{
       var rest = await http.post(
-      Uri.parse(EndPoints.generateEndPointsURLtabla4('/cerezas.php'),),
+      Uri.parse(EndPoints.generateEndPointsURLInformes('/informe.php'),),
       body: {
         'fecha': fechas[0],
         'turno': valor5,
@@ -630,8 +631,7 @@ class _draweuvas extends State<draweuvas>{
       } 
     }
     }
-    on TimeoutException catch(e)
-    {
+    on TimeoutException {
       Fluttertoast.showToast(msg: 'Se supero el tiempo de conexión');
     }
   }
@@ -682,7 +682,7 @@ class _draweuvas extends State<draweuvas>{
     try
     {
       var rest = await http.post(
-      Uri.parse(EndPoints.generateEndPointsURLtabla4('/cerezas.php'),),
+      Uri.parse(EndPoints.generateEndPointsURLInformes('/informe.php'),),
       body: {
         'fecha': fechas[0],
         'turno': valor5,

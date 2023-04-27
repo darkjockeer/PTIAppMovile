@@ -49,15 +49,16 @@ class drawertendencia extends StatelessWidget {
     var resultResponse = await Get.dialog(
       AlertDialog(
         backgroundColor: Colors.white,
-        title: const Text(''),
-        content: const Text('¿Estas segur@ de querer cerrar sesión?'),
+        title: const Text('Cerrar sesión'),
+        content: const Text('¿Quieres cerrar sesión?'),
         actions: [
           TextButton(
-            onPressed: () {Get.back();},
-              child: const Text('No', style: TextStyle(color: Colors.black),)),
-          TextButton(
             onPressed: () {Get.back(result: "Cerrar sesión");},
-                child: const Text('Si', style: TextStyle(color: Colors.black),))
+                child: const Text('Si', style: TextStyle(color: Colors.black),)),
+          TextButton(
+            onPressed: () {Get.back();},
+              child: const Text('No', style: TextStyle(color: Colors.black),))
+          
                 ],
                   ),
                 );
@@ -243,7 +244,7 @@ class drawertendencia extends StatelessWidget {
                                     // ignore: avoid_returning_null_for_void
                                     onTap: () {Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: ((context) {
                                       el.nombres=[];
-                                      el.fruta='Ranking';
+                                      el.fruta='Informe puntos críticos';
                                       lg.exportador=[];
                                       lg.centrales=[];
                                       lg.id_centrales=[];

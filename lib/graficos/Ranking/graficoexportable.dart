@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:proyecto/drawers/drawerranking.dart';
 import 'package:flutter/material.dart';
-import '../../api_connection/Endpoints/EndPoinst.dart';
+import '../../api_connection/Endpoints/EndPoinstCerezas.dart';
 import '../../drawers/drawerranking.dart' as dr;
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:proyecto/users/loginuser/login.dart' as lg;

@@ -1,0 +1,171 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.proyecto"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:3:5-66
+11-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:3:22-64
+12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+12-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:4:5-80
+12-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:4:22-78
+13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+13-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:5:5-79
+13-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:5:22-77
+14    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+14-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-81
+14-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:9:22-78
+15    <uses-permission android:name="android.permission.VIBRATE" />
+15-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:10:5-66
+15-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:10:22-63
+16    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+16-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:11:5-81
+16-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:11:22-78
+17    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+17-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:12:5-79
+17-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:12:22-76
+18    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+18-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:13:5-77
+18-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:13:22-74
+19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+19-->[:connectivity_plus] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\connectivity_plus\intermediates\merged_manifest\release\AndroidManifest.xml:9:5-79
+19-->[:connectivity_plus] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\connectivity_plus\intermediates\merged_manifest\release\AndroidManifest.xml:9:22-76
+20
+21    <application
+22        android:name="android.app.Application"
+22-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:8:9-42
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.8.0] C:\Users\Sergio\.gradle\caches\transforms-3\d363e3b5616f580c766e3e2b3c05f27d\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+24        android:icon="@mipmap/ic_launcher"
+24-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:9:9-43
+25        android:label="PT&amp;I Chile"
+25-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:7:9-39
+26        android:requestLegacyExternalStorage="true" >
+26-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:10:9-52
+27        <activity
+27-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:12:9-32:20
+28            android:name="com.example.proyecto.MainActivity"
+28-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:13:13-41
+29            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+29-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:17:13-163
+30            android:exported="true"
+30-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:14:13-36
+31            android:hardwareAccelerated="true"
+31-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:18:13-47
+32            android:launchMode="singleTop"
+32-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:15:13-43
+33            android:theme="@style/LaunchTheme"
+33-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:16:13-47
+34            android:windowSoftInputMode="adjustResize" >
+34-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:19:13-55
+35
+36            <!--
+37                 Specifies an Android theme to apply to this Activity as soon as
+38                 the Android process has started. This theme is visible to the user
+39                 while the Flutter UI initializes. After that, this theme continues
+40                 to determine the Window background behind the Flutter UI.
+41            -->
+42            <meta-data
+42-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:24:13-27:17
+43                android:name="io.flutter.embedding.android.NormalTheme"
+43-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:25:15-70
+44                android:resource="@style/NormalTheme" />
+44-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:26:15-52
+45
+46            <intent-filter>
+46-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:28:13-31:29
+47                <action android:name="android.intent.action.MAIN" />
+47-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:29:17-68
+47-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:29:25-66
+48
+49                <category android:name="android.intent.category.LAUNCHER" />
+49-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:30:17-76
+49-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:30:27-74
+50            </intent-filter>
+51        </activity>
+52        <!--
+53             Don't delete the meta-data below.
+54             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+55        -->
+56        <meta-data
+56-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:35:9-37:33
+57            android:name="flutterEmbedding"
+57-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:36:13-44
+58            android:value="2" />
+58-->C:\Users\Sergio\Documents\GitHub\PTIAppMovile\android\app\src\main\AndroidManifest.xml:37:13-30
+59
+60        <provider
+60-->[:image_picker_android] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-18:20
+61            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+61-->[:image_picker_android] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-82
+62            android:authorities="com.example.proyecto.flutter.image_provider"
+62-->[:image_picker_android] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-74
+63            android:exported="false"
+63-->[:image_picker_android] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-37
+64            android:grantUriPermissions="true" >
+64-->[:image_picker_android] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:14:13-47
+65            <meta-data
+65-->[:image_picker_android] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:15:13-17:75
+66                android:name="android.support.FILE_PROVIDER_PATHS"
+66-->[:image_picker_android] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:16:17-67
+67                android:resource="@xml/flutter_image_picker_file_paths" />
+67-->[:image_picker_android] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\image_picker_android\intermediates\merged_manifest\release\AndroidManifest.xml:17:17-72
+68        </provider>
+69
+70        <receiver
+70-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:16:9-18:40
+71            android:name="com.dexterous.flutterlocalnotifications.ActionBroadcastReceiver"
+71-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:17:13-91
+72            android:exported="false" />
+72-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:18:13-37
+73        <receiver
+73-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:19:9-21:40
+74            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver"
+74-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:20:13-97
+75            android:exported="false" />
+75-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:21:13-37
+76        <receiver
+76-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:22:9-31:20
+77            android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver"
+77-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:23:13-101
+78            android:exported="false" >
+78-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:24:13-37
+79            <intent-filter>
+79-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:25:13-30:29
+80                <action android:name="android.intent.action.BOOT_COMPLETED" />
+80-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:26:17-79
+80-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:26:25-76
+81                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+81-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:27:17-84
+81-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:27:25-81
+82                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+82-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:28:17-82
+82-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:28:25-79
+83                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+83-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:29:17-82
+83-->[:flutter_local_notifications] C:\Users\Sergio\Documents\GitHub\PTIAppMovile\build\flutter_local_notifications\intermediates\merged_manifest\release\AndroidManifest.xml:29:25-79
+84            </intent-filter>
+85        </receiver>
+86
+87        <uses-library
+87-->[androidx.window:window:1.0.0-beta04] C:\Users\Sergio\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+88            android:name="androidx.window.extensions"
+88-->[androidx.window:window:1.0.0-beta04] C:\Users\Sergio\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+89            android:required="false" />
+89-->[androidx.window:window:1.0.0-beta04] C:\Users\Sergio\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+90        <uses-library
+90-->[androidx.window:window:1.0.0-beta04] C:\Users\Sergio\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+91            android:name="androidx.window.sidecar"
+91-->[androidx.window:window:1.0.0-beta04] C:\Users\Sergio\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+92            android:required="false" />
+92-->[androidx.window:window:1.0.0-beta04] C:\Users\Sergio\.gradle\caches\transforms-3\49bc944d29f70d45aa5add8e43e3247e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+93    </application>
+94
+95</manifest>

@@ -2,7 +2,6 @@
 // ignore_for_file: import_of_legacy_library_into_null_safe
 
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';

@@ -60,15 +60,16 @@ class _drawerRanking extends State<drawerRanking> {
     var resultResponse = await Get.dialog(
       AlertDialog(
         backgroundColor: Colors.white,
-        title: const Text(''),
-        content: const Text('¿Estas segur@ de querer cerrar sesión?'),
+        title: const Text('Cerrar sesión'),
+        content: const Text('¿Quieres cerrar sesión?'),
         actions: [
           TextButton(
-            onPressed: () {Get.back();},
-              child: Text('No', style: TextStyle(color: Colors.black),)),
-          TextButton(
             onPressed: () {Get.back(result: "Cerrar sesión");},
-                child: Text('Si', style: TextStyle(color: Colors.black),))
+                child: Text('Si', style: TextStyle(color: Colors.black),)),
+          TextButton(
+            onPressed: () {Get.back();},
+              child: Text('No', style: TextStyle(color: Colors.black),))
+          
                 ],
                   ),
                 );
@@ -284,7 +285,7 @@ class _drawerRanking extends State<drawerRanking> {
                                           // ignore: avoid_returning_null_for_void
                                           onTap: () {
                                             el.nombres=[];
-                                            el.fruta='Ranking';
+                                            el.fruta='Informe puntos críticos';
                                             lg.exportador=[];
                                             lg.centrales=[];
                                             lg.id_centrales=[];

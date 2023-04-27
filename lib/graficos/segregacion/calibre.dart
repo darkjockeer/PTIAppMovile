@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 import 'package:proyecto/drawers/drawersegregacion.dart';
-import '../../api_connection/Endpoints/EndPoinst.dart';
+import '../../api_connection/Endpoints/EndPoinstCerezas.dart';
 import '../../drawers/drawersegregacion.dart' as dr;
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:proyecto/users/loginuser/login.dart' as lg;
@@ -364,7 +364,7 @@ class _Graficocalibre extends State<Graficocalibre>{
   nuevaidexportadora(String valor) async{
     try{
     var resp = await http.post(
-      Uri.parse(EndPoints.generateEndPointsURLmasInfo("/idexp.php")),
+      Uri.parse(EndPoints.generateEndPointsURLInfoExportadores("/Exportadores.php")),
       body: {
         'nomexportador': valor
       },
@@ -373,9 +373,9 @@ class _Graficocalibre extends State<Graficocalibre>{
     {
       lg.centrales=[];
       var resBody = jsonDecode(resp.body);
-      if(resBody['success']== true)
+      if(resBody['success1']== true)
       {
-        idexport=(resBody["userData"][0]["IDEXPORTADOR"]);
+        idexport=(resBody["userData1"][0]["IDEXPORTADOR"]);
       }
       else
       {
@@ -394,7 +394,7 @@ class _Graficocalibre extends State<Graficocalibre>{
   nuevaexportador() async{
     try{
   var rests = await http.post(
-    Uri.parse(EndPoints.generateEndPointsURLInfo("/centrales.php")),
+    Uri.parse(EndPoints.generateEndPointsURLInfoExportadores("/ExportadoresxControlCaja.php")),
       body: {
         'idlogin' : lg.idlogin,
         'idperfil' : lg.idperfil,
@@ -405,16 +405,16 @@ class _Graficocalibre extends State<Graficocalibre>{
     if(rests.statusCode == 200)
     {
       var resBody3 = jsonDecode(rests.body);
-      if(resBody3['success']== true)
+      if(resBody3['success1']== true)
       {
-        for (int x=0; x<resBody3["userData"].length; x=x+1)
+        for (int x=0; x<resBody3["userData1"].length; x=x+1)
         {
-          lg.centrales.add(resBody3["userData"][x]["NOMCENTRAL"]);
+          lg.centrales.add(resBody3["userData1"][x]["NOMCENTRAL"]);
         }
       }
       else
       {
-        lg.centrales.add(resBody3["userData"][0]["NOMCENTRAL"]);
+        lg.centrales.add(resBody3["userData1"][0]["NOMCENTRAL"]);
       }
     }}
     on TimeoutException catch(e)

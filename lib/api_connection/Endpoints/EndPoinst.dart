@@ -2,35 +2,25 @@ import 'package:proyecto/api_connection/Constant.dart';
 
 
 class EndPoints {
-
-
-
-  static generateEndPointsURL(resource){
-    return Constant.hostConnectUser+resource;
+  static generateEndPointsURLInformes(resource){
+    return Constant.hostConnectInformes+resource;
   }
-
-
-  static generateEndPointsURLInfo(resource){
-    return Constant.hostConnectInfo+resource;
+  static generateEndPointsURLcerezas(resource){
+    return Constant.hostConnecttablascerezas+resource;
   }
-
-  static generateEndPointsURLmasInfo(resource){
-    return Constant.hostConnectmasInfo+resource;
+  static generateEndPointsURLpomaceas(resource){
+    return Constant.hostConnecttablaspomaceas+resource;
   }
-
-  static generateEndPointsURLtabla(resource){
-    return Constant.hostConnecttablas+resource;
+  static generateEndPointsURLcarozos(resource){
+    return Constant.hostConnecttablascarozos+resource;
   }
-
-  static generateEndPointsURLtabla2(resource){
-    return Constant.hostConnecttablas2+resource;
+  static generateEndPointsURLkiwis(resource){
+    return Constant.hostConnecttablaskiwis+resource;
   }
-
-  static generateEndPointsURLtabla3(resource){
-    return Constant.hostConnecttablas3+resource;
+  static generateEndPointsURLarandanos(resource){
+    return Constant.hostConnecttablasarandanos+resource;
   }
-
-  static generateEndPointsURLtabla4(resource){
-    return Constant.hostConnecttablas4+resource;
+  static generateEndPointsURLuvas(resource){
+    return Constant.hostConnecttablasuvas+resource;
   }
 }

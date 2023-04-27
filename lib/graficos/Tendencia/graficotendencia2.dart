@@ -10,7 +10,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:proyecto/drawers/drawertendencia.dart' as dk;
 import 'package:flutter/material.dart';
-import '../../api_connection/Endpoints/EndPoinst.dart';
+import '../../api_connection/Endpoints/EndPoinstCerezas.dart';
 import '../../drawers/drawertendencia.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:proyecto/users/loginuser/login.dart' as lg;
@@ -370,7 +370,7 @@ void _ShowMultiselected() async
                                   if(lg.exportador.length != 1)
                                   {
                                     var resp = await http.post(
-                                      Uri.parse(EndPoints.generateEndPointsURLmasInfo("/idexp.php")),
+                                      Uri.parse(EndPoints.generateEndPointsURLInfoExportadores("/Exportadores.php")),
                                       body: {
                                         'nomexportador': catess.toString()
                                       },
@@ -380,9 +380,9 @@ void _ShowMultiselected() async
                                       lg.centrales=[];
                                       lg.id_centrales=[];
                                       var resBody = jsonDecode(resp.body);
-                                      if(resBody['success']== true)
+                                      if(resBody['success1']== true)
                                       {
-                                        idexport=(resBody["userData"][0]["IDEXPORTADOR"]);
+                                        idexport=(resBody["userData1"][0]["IDEXPORTADOR"]);
                                       }
                                       else
                                       {
@@ -390,7 +390,7 @@ void _ShowMultiselected() async
                                       }
                                     }
                                       var rests = await http.post(
-                                        Uri.parse(EndPoints.generateEndPointsURLInfo("/centralmas.php")),
+                                        Uri.parse(EndPoints.generateEndPointsURLInfoExportadores("/ExportadoresxControlCaja.php")),
                                           body: {
                                             'idlogin' : lg.idlogin,
                                             'idperfil' : lg.idperfil,
@@ -402,17 +402,17 @@ void _ShowMultiselected() async
                                         if(rests.statusCode == 200)
                                         {
                                           var resBody3 = jsonDecode(rests.body);
-                                          if(resBody3['success']== true)
+                                          if(resBody3['success1']== true)
                                           {
-                                            for (int x=0; x<resBody3["userData"].length; x=x+1)
+                                            for (int x=0; x<resBody3["userData1"].length; x=x+1)
                                             {
-                                              lg.centrales.add(resBody3["userData"][x]["NOMCENTRAL"]);
-                                              lg.id_centrales.add(resBody3["userData"][x]["IDCENTRAL"]);
+                                              lg.centrales.add(resBody3["userData1"][x]["NOMCENTRAL"]);
+                                              lg.id_centrales.add(resBody3["userData1"][x]["IDCENTRAL"]);
                                             }
                                           }
                                           else
                                           {
-                                            lg.centrales.add(resBody3["userData"][0]["NOMCENTRAL"]);
+                                            lg.centrales.add(resBody3["userData1"][0]["NOMCENTRAL"]);
                                           }
                                         }
                                       setState(() {
@@ -1360,7 +1360,7 @@ void _ShowMultiselected() async
                                   {
                                     print('aa');
                                     var resp = await http.post(
-                                      Uri.parse(EndPoints.generateEndPointsURLmasInfo("/idexp.php")),
+                                      Uri.parse(EndPoints.generateEndPointsURLInfoExportadores("/Exportadores.php")),
                                       body: {
                                         'nomexportador': catess.toString()
                                       },
@@ -1370,9 +1370,9 @@ void _ShowMultiselected() async
                                       lg.centrales=[];
                                       lg.id_centrales=[];
                                       var resBody = jsonDecode(resp.body);
-                                      if(resBody['success']== true)
+                                      if(resBody['success1']== true)
                                       {
-                                        idexport=(resBody["userData"][0]["IDEXPORTADOR"]);
+                                        idexport=(resBody["userData1"][0]["IDEXPORTADOR"]);
                                       }
                                       else
                                       {
@@ -1381,7 +1381,7 @@ void _ShowMultiselected() async
                                     }
                                     print(idexport);
                                       var rests = await http.post(
-                                        Uri.parse(EndPoints.generateEndPointsURLInfo("/centralmas.php")),
+                                        Uri.parse(EndPoints.generateEndPointsURLInfoExportadores("/ExportadoresxControlCaja.php")),
                                           body: {
                                             'idlogin' : lg.idlogin,
                                             'idperfil' : lg.idperfil,
@@ -1393,17 +1393,17 @@ void _ShowMultiselected() async
                                         if(rests.statusCode == 200)
                                         {
                                           var resBody3 = jsonDecode(rests.body);
-                                          if(resBody3['success']== true)
+                                          if(resBody3['success1']== true)
                                           {
-                                            for (int x=0; x<resBody3["userData"].length; x=x+1)
+                                            for (int x=0; x<resBody3["userData1"].length; x=x+1)
                                             {
-                                              lg.centrales.add(resBody3["userData"][x]["NOMCENTRAL"]);
-                                              lg.id_centrales.add(resBody3["userData"][x]["IDCENTRAL"]);
+                                              lg.centrales.add(resBody3["userData1"][x]["NOMCENTRAL"]);
+                                              lg.id_centrales.add(resBody3["userData1"][x]["IDCENTRAL"]);
                                             }
                                           }
                                           else
                                           {
-                                            lg.centrales.add(resBody3["userData"][0]["NOMCENTRAL"]);
+                                            lg.centrales.add(resBody3["userData1"][0]["NOMCENTRAL"]);
                                           }
                                         }
                                       setState(() {
