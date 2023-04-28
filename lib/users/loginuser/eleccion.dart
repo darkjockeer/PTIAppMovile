@@ -23,6 +23,7 @@ import 'package:proyecto/users/model/User.dart';
 import 'package:proyecto/users/model/noti.dart';
 import 'package:proyecto/users/preferencias/actual.dart';
 import 'package:proyecto/users/preferencias/preferencias.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:proyecto/graficos/Tendencia/graficotendencia.dart' as gt;
 import '../../api_connection/Endpoints/EndPoinstCerezas.dart';
 import '../../drawers/drawerarandanos.dart';
@@ -55,24 +56,33 @@ List<String> images =[
     "assets/images/segregacion.png"
     
   ];
+
 class Eleccion extends StatefulWidget {
   static String id = 'Eleccion';
 
   const Eleccion({super.key});
+  
   @override
   State<Eleccion> createState() => _Eleccion();
 }
 String fruta='Informe puntos críticos';
+late SharedPreferences prefs;
 class _Eleccion extends State<Eleccion>{
   final actual _currentUser = Get.put(actual());
+  int pageIndex=0;
   @override
   void initState() {
     info2('1', 0);
     super.initState();
+    initPrefs();
   }
   actual remeberCurrentUser = Get.put(actual());
   final PageController controllers = PageController();
-
+  
+  void initPrefs() async {
+  prefs = await SharedPreferences.getInstance();
+  pageIndex = prefs.getInt('pageIndex') ?? 0;
+}
   void autenticacion(){
     if(especies.isEmpty)
     {
@@ -538,6 +548,7 @@ class _Eleccion extends State<Eleccion>{
       var resBody2 = jsonDecode(rest.body);
       if(resBody2['success']== true)
       {
+        
         for (int x=0; x<=resBody2["nomcentral"].length; x=x+1){
           print(resBody2["nomcentral"][x]);
           print(x);
@@ -545,37 +556,38 @@ class _Eleccion extends State<Eleccion>{
           lg.id_centrales.add(resBody2["idcentral"][x].toString());
           if(x==resBody2["nomcentral"].length-1)
           {
-            if(paginaactual==0)
+            
+            if(pageIndex==0)
             {
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: ((context) {
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: ((context) {        
                                               return drawerauditoria();
                                             })), (route) => false);
             }
-            else if(paginaactual==1)
+            else if(pageIndex==1)
             {
               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: ((context) {
                                               return drawerarandanos();
                                             })), (route) => false);
             }
-            else if(paginaactual==2)
+            else if(pageIndex==2)
             {
               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: ((context) {
                                               return drawerauditoria();
                                             })), (route) => false);
             }
-            else if(paginaactual==3)
+            else if(pageIndex==3)
             {
               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: ((context) {
                                               return drawerauditoria();
                                             })), (route) => false);
             }
-            else if(paginaactual==4)
+            else if(pageIndex==4)
             {
               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: ((context) {
                                               return drawerpomaceas();
                                             })), (route) => false);
             }
-            else if(paginaactual==5)
+            else if(pageIndex==5)
             {
               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: ((context) {
                                               return draweuvas();
@@ -767,10 +779,12 @@ class _Eleccion extends State<Eleccion>{
 
   void paginainicial()
   {
+    paginaactual=pageIndex;
     if(especies.contains('1'))
     {
       setState(() {
         paginaactual=0;
+        
       });
     }
     else if(especies.contains('10'))
@@ -852,7 +866,14 @@ class _Eleccion extends State<Eleccion>{
               bottomNavigationBar: BottomNavigationBar(
                 onTap: (indexs){
                   setState(() {
+                    pageIndex= indexs;
+                    paginaactual=pageIndex;
+                    prefs.setInt('pageIndex', pageIndex);
+                    print(indexs);
+                    print(pageIndex);
+                    print(paginaactual);
                     if(indexs == 0 && especies.contains('1')==true){//CEREZAS
+                    
                       paginaactual = indexs;
                       images =[
                         "assets/images/aucerezas.png",

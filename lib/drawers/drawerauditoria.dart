@@ -81,6 +81,7 @@ class _drawerauditoria extends State<drawerauditoria> {
   void initState() {
     obtenerespecie();
     comprobar();
+    
     valor = categorias[0];
     valor2 = lg.centrales[0];
     valor6 = lg.id_centrales[0];
@@ -88,8 +89,6 @@ class _drawerauditoria extends State<drawerauditoria> {
   }
 
   actual remeberCurrentUser = Get.put(actual());
-  int currentIndexs = 0;
-  int paginaactual = 0;
   late Uint8List imagen;
 
   final PageController controllers = PageController();
