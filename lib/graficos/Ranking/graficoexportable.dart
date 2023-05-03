@@ -36,10 +36,10 @@ List <double> calibre3=[];
 List <double> calibre4=[];
 List <int> idexp=[];
 List <int> ids=[];
-List <String> idcolor=['#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB','#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB','#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB'];
+List <String> idcolor=['#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB','#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB','#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB', '#8CFFFB'];
 List <int> idpti=[];
 List <String> nomexp=[];
-List <String> letra=['A', 'B', 'B', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'B', 'A', 'A', 'A', 'A'];
+List <String> letra=['A', 'B', 'B', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'B', 'A', 'A', 'A', 'A', 'A'];
 String valor='', valor3='', valor4='';
 int valor2=0;
 var seen = <String>{};
@@ -47,7 +47,7 @@ List<String> uniquelist = lg.centrales.where((country) => seen.add(country)).toL
 late ZoomPanBehavior _zoomPanBehavior;
 late TooltipBehavior _tooltipBehavior;
 class ChartData {
-        ChartData(this.x, this.y0, this.y1, this.y2, this.y3, this.y4, this.y5, this.y6, this.y7, this.y8, this.y9, this.y10, this.y11, this.y12, this.y13, this.y14);
+        ChartData(this.x, this.y0, this.y1, this.y2, this.y3, this.y4, this.y5, this.y6, this.y7, this.y8, this.y9, this.y10, this.y11, this.y12, this.y13, this.y14, this.y15);
         final String x;
         final double y0;
         final double y1;
@@ -64,6 +64,7 @@ class ChartData {
         final double y12;
         final double y13;
         final double y14;
+        final double y15;
 }
 
 class Graficoexp extends StatefulWidget{
@@ -85,7 +86,7 @@ class _Graficosexp extends State<Graficoexp>{
       valor4=el.nuevoidexportador;
       count = 0;
       chartData = <ChartData>[
-      ChartData('Ejemplo', 12, 20,2,3,4,5,6,7,8,9,10,6,3,4,5),
+      ChartData('Ejemplo', 12, 20,2,3,4,5,6,7,8,9,10,6,3,4,5,3),
     ];
       _tooltipBehavior = TooltipBehavior(
         enable: true,
@@ -285,21 +286,21 @@ class _Graficosexp extends State<Graficoexp>{
 void _addSeries() {
     final List<ChartData> chartData1 = <ChartData>[];
     print(letra.length);
-    if(letra.length==12)
+    if(letra.length==13)
     {
-      chartData1.add(ChartData('% Expotable estimado en recepción', calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8], calibre1[9], calibre1[10], calibre1[11],0, 0, 0));
+      chartData1.add(ChartData('% Expotable estimado en recepción', calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8], calibre1[9], calibre1[10], calibre1[11], calibre1[12],0, 0, 0));
     }
     else if(letra.length==15)
     {
-      chartData1.add(ChartData('% Expotable estimado en recepción', calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8], calibre1[9], calibre1[10], calibre1[11],calibre1[12], calibre1[13], calibre1[14]));
+      chartData1.add(ChartData('% Expotable estimado en recepción', calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8], calibre1[9], calibre1[10], calibre1[11],calibre1[12], calibre1[13], calibre1[14],0));
     }
-    else if(letra.length==8)
+    else if(letra.length==9)
     {
-      chartData1.add(ChartData('% Expotable estimado en recepción', calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],0,0,0,0,0, 0, 0));
+      chartData1.add(ChartData('% Expotable estimado en recepción', calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7], calibre1[8],0,0,0,0,0, 0, 0));
     }
-    else if(letra.length==13)
+    else if(letra.length==16)
     {
-      chartData1.add(ChartData('% Expotable estimado en recepción', calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8], calibre1[9], calibre1[10], calibre1[11],calibre1[12], 0, 0));
+      chartData1.add(ChartData('% Expotable estimado en recepción', calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8], calibre1[9], calibre1[10], calibre1[11],calibre1[12], calibre1[13] , calibre1[14], calibre1[15]));
     }
       
     for(int x=0; x<letra.length; x++)
@@ -467,6 +468,17 @@ void _addSeries() {
         dataSource: chartData1,
         xValueMapper: (ChartData sales, _) => sales.x,
         yValueMapper: (ChartData sales, _) => sales.y14
+        ));
+      }
+      else if(x==15)
+      {
+        series!.add(ColumnSeries<ChartData, String>(
+        key: ValueKey<String>('${series!.length}'),
+        animationDuration: 1500, animationDelay: 1500, color: (idcolor[15].toColor()) ,name: letra[15],dataLabelSettings: const DataLabelSettings( isVisible: true, showCumulativeValues: true,textStyle: TextStyle(fontSize: 8, fontWeight: FontWeight.bold))
+                              ,spacing:0.2 ,width:0.9,
+        dataSource: chartData1,
+        xValueMapper: (ChartData sales, _) => sales.x,
+        yValueMapper: (ChartData sales, _) => sales.y15
         ));
       }
       isSelected=false;
@@ -655,51 +667,7 @@ Future bb1() async
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                       Expanded(
-                        child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height,
-                            decoration: const BoxDecoration(
-                              color: Colors.white
-                            ),
-                            child: Column(
-                              children: [
-                                const Text('Exportador:',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold
-                                ),),
-                                siono? DropdownButton(
-                                  isExpanded: true,
-                                  elevation: 10,
-                                  borderRadius: BorderRadius.circular(10),
-                                  value: valor3,
-                                  items: lg.exportador.map((e){
-                                  return DropdownMenuItem(value: e,child: 
-                                  Center(child: Text(e, textAlign: TextAlign.center,)),
-                                  );
-                                }).toList(), 
-                                  onChanged: (e)
-                                  {
-                                    setState(() {
-                                      for(int x=0; x<lg.id_exportador.length; x++)
-                                      {
-                                        if(e.toString()==lg.exportador[x])
-                                        {
-                                          valor3=e.toString();
-                                          valor4=lg.id_exportador[x];
-                                          valor3=e.toString();
-                                          break;
-                                        }
-                                      }
-                                    });
-                                  }):
-                                Padding(padding: EdgeInsets.all(8.0),
-                                child:Text(el.nombreidexportador, style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),) )
-                              ],
-                            ),
-                          ),
-                      ),
+                       
                         Expanded(
                           child: Container(
                           width: MediaQuery.of(context).size.width,
