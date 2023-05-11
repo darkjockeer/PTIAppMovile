@@ -10,7 +10,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:proyecto/drawers/drawertendencia.dart' as dk;
 import 'package:flutter/material.dart';
-import '../../api_connection/Endpoints/EndPoinstCerezas.dart';
+import '../../api_connection/Endpoints/EndPoinst.dart';
 import '../../drawers/drawertendencia.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:proyecto/users/loginuser/login.dart' as lg;

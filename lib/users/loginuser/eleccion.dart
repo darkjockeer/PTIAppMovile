@@ -872,6 +872,7 @@ class _Eleccion extends State<Eleccion>{
                     print(indexs);
                     print(pageIndex);
                     print(paginaactual);
+                    print(fruta);
                     if(indexs == 0 && especies.contains('1')==true){//CEREZAS
                     
                       paginaactual = indexs;
@@ -907,82 +908,137 @@ class _Eleccion extends State<Eleccion>{
                     }
                     else if(indexs==4 && especies.contains('6')==true && especies.contains('7')!=true){//SOLO PERAS
                       paginaactual = indexs;
-                      selectedSpecies=4;
+                      
                       images =[
-                        "assets/images/pera.png"
+                        "assets/images/pera.png",
+                        "assets/images/tendencia.png"
                       ];
-                      fruta='Informe puntos críticos';
+                      
+                      selectedSpecies=4;
                       if(index2% images.length== 0)
                       {
-                        currentIndexs=0;
-                      }
-                    }
-                    else if(indexs==4 && especies.contains('7')==true&& especies.contains('6')!=true){//SOLO MANZANAS
-                      paginaactual = indexs;
-                      selectedSpecies=4;
-                      images =[
-                        "assets/images/aumanzana.png"
-
-                      ];
-                      fruta='Informe puntos críticos';
-                      if(index2% images.length== 0)
-                      {
-                        currentIndexs=0;
-                      }
-                    }
-                    else if(indexs==4 && especies.contains('6')==true && especies.contains('7')==true){//SOLO PERAS Y MANZANAS
-                      paginaactual = indexs;
-                      selectedSpecies=4;
-                      images =[
-                        "assets/images/aumanzana.png",
-                        "assets/images/pera.png"
-                      ];
-                      fruta='Informe puntos críticos';
-                      if(index2% images.length== 0)
-                      {
+                        fruta='Informe puntos críticos';
                         currentIndexs=0;
                       }
                       else if(index2% images.length== 1)
                       {
+                        fruta='Tendencia';
+                        currentIndexs=2;
+                      }
+                     
+                    }
+                    else if(indexs==4 && especies.contains('7')==true&& especies.contains('6')!=true){//SOLO MANZANAS
+                      paginaactual = indexs;
+                      selectedSpecies=4;
+                      if(index2% images.length== 0)
+                      {
+                        fruta='Informe puntos críticos';
                         currentIndexs=0;
                       }
+                      else if(index2% images.length== 1)
+                      {
+                        fruta='Tendencia';
+                        currentIndexs=2;
+                      }
+                      
+                    }
+                    else if(indexs==4 && especies.contains('6')==true && especies.contains('7')==true){//SOLO PERAS Y MANZANAS
+                      paginaactual = indexs;
+                     
+                      images =[
+                        "assets/images/aumanzana.png",
+                        "assets/images/pera.png",
+                        "assets/images/tendencia.png"
+                      ];
+                      
+                      selectedSpecies=4;
+                      if(index2% images.length== 0)
+                      {
+                        fruta='Informe puntos críticos';
+                        currentIndexs=0;
+                      }
+                      else if(index2% images.length== 1)
+                      {
+                        fruta='Tendencia';
+                        currentIndexs=2;
+                      } 
                     }
                     else if(indexs==2 && especies.contains('2')==true)//SOLO CAROZOS
                     {
                       paginaactual=indexs;
-                      selectedSpecies=2;
+                     
                       images=[
-                        "assets/images/aucarozos.png"
+                        "assets/images/aucarozos.png",
+                        "assets/images/tendencia.png"
                       ];
-                      fruta='Informe puntos críticos';
-                      currentIndexs=0;
+                      
+                      selectedSpecies=2;
+                      if(index2% images.length== 0)
+                      {
+                        fruta='Informe puntos críticos';
+                        currentIndexs=0;
+                      } 
+                      else if(index2% images.length== 1)
+                      {
+                        fruta='Tendencia';
+                        currentIndexs=2;
+                      }
+                      
                     }
                     else if(indexs==1 && especies.contains('10')==true){//SOLO ARANDANOS
                       paginaactual = indexs;
-                      selectedSpecies=1;
                       images =[
-                        "assets/images/auarandanos.png"
+                        "assets/images/auarandanos.png",
+                        "assets/images/tendencia.png"
                       ];
-                      fruta='Informe puntos críticos';
-                      currentIndexs=0;
+                      selectedSpecies=1;
+                      if(index2% images.length== 0)
+                      {
+                        fruta='Informe puntos críticos';
+                        currentIndexs=0;
+                      }
+                      else if(index2% images.length== 1)
+                      {
+                        fruta='Tendencia';
+                        currentIndexs=2;
+                      }
                     }
                     else if(indexs==3 && especies.contains('9')==true){//SOLO KIWIS
                       paginaactual = indexs;
-                      selectedSpecies=3;
                       images =[
-                        "assets/images/aukiwis.png"
+                        "assets/images/aukiwis.png",
+                        "assets/images/tendencia.png"
                       ];
-                      fruta='Informe puntos críticos';
-                      currentIndexs=0;
+                      selectedSpecies=3;
+                      if(index2% images.length== 0)
+                      {
+                        fruta='Informe puntos críticos';
+                        currentIndexs=0;
+                      }
+                      else if(index2% images.length== 1)
+                      {
+                        fruta='Tendencia';
+                        currentIndexs=2;
+                      }
+                    
                     }
                     else if(indexs==5 && especies.contains('8')==true){//SOLO UVAS
-                      paginaactual = indexs;
-                      selectedSpecies=5;
+                      paginaactual = indexs;    
                       images =[
-                        "assets/images/auuvas.png"
+                        "assets/images/auuvas.png",
+                        "assets/images/tendencia.png"
                       ];
-                      fruta='Informe puntos críticos';
-                      currentIndexs=0;
+                      selectedSpecies=5;
+                      if(index2% images.length== 0)
+                      {
+                        fruta='Informe puntos críticos';
+                        currentIndexs=0;
+                      }
+                      else if(index2% images.length== 1)
+                      {
+                        fruta='Tendencia';
+                        currentIndexs=2;
+                      }
                     }
                     else
                     {

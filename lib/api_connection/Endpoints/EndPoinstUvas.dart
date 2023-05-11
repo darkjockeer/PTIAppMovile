@@ -14,4 +14,7 @@ class EndPoints {
   static generateEndPointsURLtabla4(resource){
     return Constant.hostConnecttablas4+resource;
   }
+  static generateEndPointsURLInfoExportadores(resource){
+    return Constant.hostConnectInfoExportadores+resource;
+  }
 }
