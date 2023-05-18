@@ -49,7 +49,7 @@ List<String> uniquelist = lg.centrales.where((country) => seen.add(country)).toL
 late ZoomPanBehavior _zoomPanBehavior;
 late TooltipBehavior _tooltipBehavior;
 class ChartData {
-        ChartData(this.x, this.y0, this.y1, this.y2, this.y3, this.y4, this.y5, this.y6, this.y7, this.y8, this.y9, this.y10, this.y11, this.y12, this.y13, this.y14);
+        ChartData(this.x, this.y0, this.y1, this.y2, this.y3, this.y4, this.y5, this.y6, this.y7, this.y8, this.y9, this.y10, this.y11, this.y12, this.y13, this.y14,this.y15);
         final String x;
         final double y0;
         final double y1;
@@ -66,6 +66,7 @@ class ChartData {
         final double y12;
         final double y13;
         final double y14;
+        final double y15;
 }
 
 
@@ -89,7 +90,7 @@ List<BarSeries<ChartData, String>>? series;
       valor4=el.nuevoidexportador;
       count = 0;
       chartData = <ChartData>[
-      ChartData('Ejemplo' ,0, 1 ,2,3,4,5,6,7,8,9,10,6,4,5,6),
+      ChartData('Ejemplo' ,0, 1 ,2,3,4,5,6,7,8,9,10,6,4,5,6,5),
     ];
       _tooltipBehavior = TooltipBehavior(
         enable: true,
@@ -245,31 +246,32 @@ List<BarSeries<ChartData, String>>? series;
   void _addSeries() {
     final List<ChartData> chartData1 = <ChartData>[];
     print(letra.length);
-    if(letra.length==12)
+    if(letra.length==13)
     {
-      chartData1.add(ChartData('SS < 16.5', calibre3[0], calibre3[1], calibre3[2], calibre3[3],calibre3[4], calibre3[5], calibre3[6], calibre3[7],calibre3[8], calibre3[9], calibre3[10], calibre3[11],0, 0, 0));
-      chartData1.add(ChartData('SS 17.5 a 16.5 ', calibre2[0], calibre2[1], calibre2[2], calibre2[3],calibre2[4], calibre2[5], calibre2[6], calibre2[7],calibre2[8], calibre2[9], calibre2[10], calibre2[11],0, 0, 0));
-      chartData1.add(ChartData('SS > 17.5' ,calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8], calibre1[9], calibre1[10], calibre1[11], 0, 0, 0));
+      chartData1.add(ChartData('SS < 16.5', calibre3[0], calibre3[1], calibre3[2], calibre3[3],calibre3[4], calibre3[5], calibre3[6], calibre3[7],calibre3[8], calibre3[9], calibre3[10], calibre3[11],calibre3[12],0, 0, 0));
+      chartData1.add(ChartData('SS 17.5 a 16.5 ', calibre2[0], calibre2[1], calibre2[2], calibre2[3],calibre2[4], calibre2[5], calibre2[6], calibre2[7],calibre2[8], calibre2[9], calibre2[10], calibre2[11],calibre2[12],0, 0, 0));
+      chartData1.add(ChartData('SS > 17.5' ,calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8], calibre1[9], calibre1[10], calibre1[11],calibre1[12],0, 0, 0));
     }
     else if(letra.length==15)
     {
-      chartData1.add(ChartData('SS < 16.5', calibre3[0], calibre3[1], calibre3[2], calibre3[3],calibre3[4], calibre3[5], calibre3[6], calibre3[7],calibre3[8], calibre3[9], calibre3[10], calibre3[11],calibre3[12], calibre3[13], calibre3[14]));
-      chartData1.add(ChartData('SS 17.5 a 16.5 ', calibre2[0], calibre2[1], calibre2[2], calibre2[3],calibre2[4], calibre2[5], calibre2[6], calibre2[7],calibre2[8], calibre2[9], calibre2[10], calibre2[11],calibre2[12], calibre2[13], calibre2[14]));
-      chartData1.add(ChartData('SS > 17.5', calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8], calibre1[9], calibre1[10], calibre1[11],calibre1[12], calibre1[13], calibre1[14]));
+      chartData1.add(ChartData('SS < 16.5', calibre3[0], calibre3[1], calibre3[2], calibre3[3],calibre3[4], calibre3[5], calibre3[6], calibre3[7],calibre3[8], calibre3[9], calibre3[10], calibre3[11],calibre3[12], calibre3[13], calibre3[14],0));
+      chartData1.add(ChartData('SS 17.5 a 16.5 ', calibre2[0], calibre2[1], calibre2[2], calibre2[3],calibre2[4], calibre2[5], calibre2[6], calibre2[7],calibre2[8], calibre2[9], calibre2[10], calibre2[11],calibre2[12], calibre2[13], calibre2[14],0));
+      chartData1.add(ChartData('SS > 17.5' , calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8], calibre1[9], calibre1[10], calibre1[11],calibre1[12], calibre1[13], calibre1[14],0));
     }
-    else if(letra.length==8)
+    else if(letra.length==9)
     {
-      chartData1.add(ChartData('SS < 16.5', calibre3[0], calibre3[1], calibre3[2], calibre3[3],calibre3[4], calibre3[5], calibre3[6], calibre3[7],0,0,0,0,0, 0, 0));
-      chartData1.add(ChartData('SS 17.5 a 16.5 ', calibre2[0], calibre2[1], calibre2[2], calibre2[3],calibre2[4], calibre2[5], calibre2[6], calibre2[7],0,0,0,0,0, 0, 0));
-      chartData1.add(ChartData('SS > 17.5' ,calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],0,0,0,0, 0, 0, 0));
+      chartData1.add(ChartData('SS < 16.5', calibre3[0], calibre3[1], calibre3[2], calibre3[3],calibre3[4], calibre3[5], calibre3[6], calibre3[7],calibre3[8],0,0,0,0,0, 0, 0));
+      chartData1.add(ChartData('SS 17.5 a 16.5 ', calibre2[0], calibre2[1], calibre2[2], calibre2[3],calibre2[4], calibre2[5], calibre2[6], calibre2[7],calibre2[8],0,0,0,0,0, 0, 0));
+      chartData1.add(ChartData('SS > 17.5' ,calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8],0,0,0,0, 0, 0, 0));
     }
-    else if(letra.length==13)
+    else if(letra.length==16)
     {
-      chartData1.add(ChartData('SS < 16.5', calibre3[0], calibre3[1], calibre3[2], calibre3[3],calibre3[4], calibre3[5], calibre3[6], calibre3[7],calibre3[8], calibre3[9], calibre3[10], calibre3[11],calibre3[12], 0, 0));
-      chartData1.add(ChartData('SS 17.5 a 16.5 ', calibre2[0], calibre2[1], calibre2[2], calibre2[3],calibre2[4], calibre2[5], calibre2[6], calibre2[7],calibre2[8], calibre2[9], calibre2[10], calibre2[11],calibre2[12], 0, 0));
-      chartData1.add(ChartData('SS > 17.5' ,calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8], calibre1[9], calibre1[10], calibre1[11],calibre1[12], 0, 0));
+      chartData1.add(ChartData('SS < 16.5', calibre3[0], calibre3[1], calibre3[2], calibre3[3],calibre3[4], calibre3[5], calibre3[6], calibre3[7],calibre3[8], calibre3[9], calibre3[10], calibre3[11],calibre3[12],calibre3[13], calibre3[14], calibre3[15]));
+      chartData1.add(ChartData('SS 17.5 a 16.5 ', calibre2[0], calibre2[1], calibre2[2], calibre2[3],calibre2[4], calibre2[5], calibre2[6], calibre2[7],calibre2[8], calibre2[9], calibre2[10], calibre2[11],calibre2[12],calibre2[13], calibre2[14], calibre2[15]));
+      chartData1.add(ChartData('SS > 17.5' ,calibre1[0], calibre1[1], calibre1[2], calibre1[3],calibre1[4], calibre1[5], calibre1[6], calibre1[7],calibre1[8], calibre1[9], calibre1[10], calibre1[11],calibre1[12], calibre1[13], calibre1[14], calibre1[15]));
     }
-      
+
+
     for(int x=0; x<letra.length; x++)
     {
       if(x==0)
@@ -435,6 +437,17 @@ List<BarSeries<ChartData, String>>? series;
         dataSource: chartData1,
         xValueMapper: (ChartData sales, _) => sales.x,
         yValueMapper: (ChartData sales, _) => sales.y14
+        ));
+      }
+      else if(x==15)
+      {
+        series!.add(BarSeries<ChartData, String>(
+        key: ValueKey<String>('${series!.length}'),
+        animationDuration: 1500, animationDelay: 1500, color: (idcolor[15].toColor()) ,name: letra[15],dataLabelSettings: const DataLabelSettings( isVisible: true, showCumulativeValues: true,textStyle: TextStyle(fontSize: 8, fontWeight: FontWeight.bold))
+                              ,spacing:0.2 ,width:0.9,
+        dataSource: chartData1,
+        xValueMapper: (ChartData sales, _) => sales.x,
+        yValueMapper: (ChartData sales, _) => sales.y15
         ));
       }
       isSelected=false;
