@@ -28,7 +28,7 @@ import 'package:get/get.dart';
 import 'package:proyecto/users/model/User.dart';
 import 'package:proyecto/users/preferencias/actual.dart';
 import 'package:proyecto/users/preferencias/preferencias.dart';
-import 'package:proyecto/graficos/Tendencia/graficotendencia.dart' as gt;
+import 'package:proyecto/graficos/TendenciaCerezas/graficotendencia.dart' as gt;
 import '../api_connection/Endpoints/EndPoinstArandanos.dart';
 import 'package:http/http.dart' as http;
 import 'package:proyecto/users/model/noti.dart';

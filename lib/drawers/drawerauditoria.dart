@@ -24,7 +24,7 @@ import 'package:get/get.dart';
 import 'package:proyecto/users/model/User.dart';
 import 'package:proyecto/users/preferencias/actual.dart';
 import 'package:proyecto/users/preferencias/preferencias.dart';
-import 'package:proyecto/graficos/Tendencia/graficotendencia.dart' as gt;
+import 'package:proyecto/graficos/TendenciaCerezas/graficotendencia.dart' as gt;
 import '../../api_connection/Endpoints/EndPoinst.dart';
 import 'package:http/http.dart' as http;
 import '../graficos/Auditorias/chidro.dart';
@@ -506,6 +506,7 @@ class _drawerauditoria extends State<drawerauditoria> {
                                                         if (valor6 == '') {
                                                           valor6 = lg
                                                               .id_centrales[0];
+                                                              
                                                           num = '1';
                                                           idinforme();
                                                         } else {
@@ -772,7 +773,7 @@ class _drawerauditoria extends State<drawerauditoria> {
                                                         if (valor6 == '') {
                                                           valor6 = lg
                                                               .id_centrales[0];
-                                                          if (especie == 2) {
+                                                          if (especie == 2){
                                                             num = '5';
                                                             idinforme();
                                                           } else {
