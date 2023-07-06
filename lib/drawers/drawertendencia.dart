@@ -1,8 +1,8 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:proyecto/graficos/TendenciaKiwis/graficotendencia.dart';
-import 'package:proyecto/graficos/TendenciaKiwis/graficotendencia2.dart';
+import 'package:proyecto/graficos/Tendencia/graficotendencia.dart';
+import 'package:proyecto/graficos/Tendencia/graficotendencia2.dart';
 import 'package:proyecto/users/loginuser/eleccion.dart' as el;
 import 'package:proyecto/users/preferencias/preferencias.dart'; 
 import '../users/loginuser/eleccion.dart';

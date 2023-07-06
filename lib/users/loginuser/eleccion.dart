@@ -15,7 +15,7 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:proyecto/graficos/Ranking/graficosegregacion.dart';
-import 'package:proyecto/graficos/TendenciaCerezas/graficotendencia.dart';
+import 'package:proyecto/graficos/Tendencia/graficotendencia.dart';
 import 'package:proyecto/graficos/segregacion/segregacion.dart';
 import 'package:proyecto/main.dart';
 import 'package:proyecto/users/loginuser/login.dart' as lg;
@@ -24,7 +24,7 @@ import 'package:proyecto/users/model/noti.dart';
 import 'package:proyecto/users/preferencias/actual.dart';
 import 'package:proyecto/users/preferencias/preferencias.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:proyecto/graficos/TendenciaCerezas/graficotendencia.dart' as gt;
+import 'package:proyecto/graficos/Tendencia/graficotendencia.dart' as gt;
 import '../../api_connection/Endpoints/EndPoinstCerezas.dart';
 import '../../drawers/drawerarandanos.dart';
 import '../../drawers/drawerpomaceas.dart';
@@ -868,16 +868,19 @@ class _Eleccion extends State<Eleccion>{
                   setState(() {
                     pageIndex= indexs;
                     paginaactual=pageIndex;
-                    
                     prefs.setInt('pageIndex', pageIndex);
-
+                    print(indexs);
+                    print(pageIndex);
+                    print(paginaactual);
                     if(indexs == 0 && especies.contains('1')==true){//CEREZAS
+                    
                       paginaactual = indexs;
                       images =[
                         "assets/images/aucerezas.png",
                         "assets/images/torta.png",
                         "assets/images/tendencia.png",
-                        "assets/images/segregacion.png"  
+                        "assets/images/segregacion.png"
+                        
                       ];
                       selectedSpecies=0;
                       if(index2% images.length== 0)
@@ -906,38 +909,25 @@ class _Eleccion extends State<Eleccion>{
                       paginaactual = indexs;
                       selectedSpecies=4;
                       images =[
-                        "assets/images/pera.png",
-                        "assets/images/tendencia.png"
+                        "assets/images/pera.png"
                       ];
-                    
+                      fruta='Informe puntos críticos';
                       if(index2% images.length== 0)
                       {
-                        fruta='Informe puntos críticos';
                         currentIndexs=0;
-                      }
-                      else if(index2% images.length== 1)
-                      {
-                        fruta='Tendencia';
-                        currentIndexs=2;
                       }
                     }
                     else if(indexs==4 && especies.contains('7')==true&& especies.contains('6')!=true){//SOLO MANZANAS
                       paginaactual = indexs;
                       selectedSpecies=4;
                       images =[
-                        "assets/images/aumanzana.png",
-                        "assets/images/tendencia.png",
+                        "assets/images/aumanzana.png"
 
                       ];
+                      fruta='Informe puntos críticos';
                       if(index2% images.length== 0)
                       {
-                        fruta='Informe puntos críticos';
                         currentIndexs=0;
-                      }
-                      else if(index2% images.length== 1)
-                      {
-                        fruta='Tendencia';
-                        currentIndexs=2;
                       }
                     }
                     else if(indexs==4 && especies.contains('6')==true && especies.contains('7')==true){//SOLO PERAS Y MANZANAS
@@ -945,18 +935,16 @@ class _Eleccion extends State<Eleccion>{
                       selectedSpecies=4;
                       images =[
                         "assets/images/aumanzana.png",
-                        "assets/images/pera.png",
-                        "assets/images/tendencia.png"
+                        "assets/images/pera.png"
                       ];
-                       if(index2% images.length== 0)
+                      fruta='Informe puntos críticos';
+                      if(index2% images.length== 0)
                       {
-                        fruta='Informe puntos críticos';
                         currentIndexs=0;
                       }
                       else if(index2% images.length== 1)
                       {
-                        fruta='Tendencia';
-                        currentIndexs=2;
+                        currentIndexs=0;
                       }
                     }
                     else if(indexs==2 && especies.contains('2')==true)//SOLO CAROZOS
@@ -964,73 +952,37 @@ class _Eleccion extends State<Eleccion>{
                       paginaactual=indexs;
                       selectedSpecies=2;
                       images=[
-                        "assets/images/aucarozos.png",
-                        "assets/images/tendencia.png"
+                        "assets/images/aucarozos.png"
                       ];
-                       if(index2% images.length== 0)
-                      {
-                        fruta='Informe puntos críticos';
-                        currentIndexs=0;
-                      }
-                      else if(index2% images.length== 1)
-                      {
-                        fruta='Tendencia';
-                        currentIndexs=2;
-                      }
+                      fruta='Informe puntos críticos';
+                      currentIndexs=0;
                     }
                     else if(indexs==1 && especies.contains('10')==true){//SOLO ARANDANOS
                       paginaactual = indexs;
                       selectedSpecies=1;
                       images =[
-                        "assets/images/auarandanos.png",
-                        "assets/images/tendencia.png"
+                        "assets/images/auarandanos.png"
                       ];
-                       if(index2% images.length== 0)
-                      {
-                        fruta='Informe puntos críticos';
-                        currentIndexs=0;
-                      }
-                      else if(index2% images.length== 1)
-                      {
-                        fruta='Tendencia';
-                        currentIndexs=2;
-                      }
+                      fruta='Informe puntos críticos';
+                      currentIndexs=0;
                     }
                     else if(indexs==3 && especies.contains('9')==true){//SOLO KIWIS
                       paginaactual = indexs;
                       selectedSpecies=3;
                       images =[
-                        "assets/images/aukiwis.png",
-                        "assets/images/tendencia.png"
+                        "assets/images/aukiwis.png"
                       ];
-                       if(index2% images.length== 0)
-                      {
-                        fruta='Informe puntos críticos';
-                        currentIndexs=0;
-                      }
-                      else if(index2% images.length== 1)
-                      {
-                        fruta='Tendencia';
-                        currentIndexs=2;
-                      }
+                      fruta='Informe puntos críticos';
+                      currentIndexs=0;
                     }
                     else if(indexs==5 && especies.contains('8')==true){//SOLO UVAS
                       paginaactual = indexs;
                       selectedSpecies=5;
                       images =[
-                        "assets/images/auuvas.png",
-                        "assets/images/tendencia.png"
+                        "assets/images/auuvas.png"
                       ];
-                       if(index2% images.length== 0)
-                      {
-                        fruta='Informe puntos críticos';
-                        currentIndexs=0;
-                      }
-                      else if(index2% images.length== 1)
-                      {
-                        fruta='Tendencia';
-                        currentIndexs=2;
-                      }
+                      fruta='Informe puntos críticos';
+                      currentIndexs=0;
                     }
                     else
                     {
@@ -1038,8 +990,6 @@ class _Eleccion extends State<Eleccion>{
                       Fluttertoast.showToast(msg: 'No existe servicio asociado a la especie seleccionada');
                       
                     }
-                    index2=0;
-                    pageIndex=0;
                   });
                 },
                 currentIndex: selectedSpecies,
